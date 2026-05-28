@@ -1,34 +1,29 @@
+id="gnjlwm"
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 
 metadata:
-  name: speakershop-deployment
+  name: speakershop-replicaset
 
 spec:
-  replicas: 1
+  replicas: 2
 
   selector:
     matchLabels:
-      app: speakershop
+      app: speakershop-replica
 
   template:
 
     metadata:
       labels:
-        app: speakershop
+        app: speakershop-replica
 
     spec:
       containers:
 
         - name: speakershop-container
+
           image: mohitdocker241/speakershop:v1.0.0
 
           ports:
             - containerPort: 3000
-
-          envFrom:
-            - configMapRef:
-                name: speakershop-config
-
-            - secretRef:
-                name: speakershop-secret

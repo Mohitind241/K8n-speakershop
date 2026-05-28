@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: speakershop-config
+
+data:
+  APP_NAME: "SpeakerShop"
+  APP_VERSION: "v1.0.0"
+  APP_PORT: "3000"
+  ENVIRONMENT: "production"
+  COMPANY_NAME: "Mohit Tech"

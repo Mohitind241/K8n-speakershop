@@ -1,0 +1,13 @@
+appName: speakershop
+
+replicaCount: 2
+
+image:
+  repository: mohitdocker241/speakershop
+  tag: v1.0.0
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 3000
+  nodePort: 30080

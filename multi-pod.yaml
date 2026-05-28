@@ -1,0 +1,23 @@
+id="wnjylw"
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: speakershop-multi-pod
+
+spec:
+  containers:
+
+    - name: speakershop-container
+
+      image: mohitdocker241/speakershop:v1.0.0
+
+      ports:
+        - containerPort: 3000
+
+    - name: nginx-container
+
+      image: nginx
+
+      ports:
+        - containerPort: 80
