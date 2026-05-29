@@ -18,17 +18,22 @@ spec:
         app: speakershop
 
     spec:
+
       containers:
 
-        - name: speakershop-container
-          image: mohitdocker241/speakershop:v1.0.0
+      - name: speakershop-container
 
-          ports:
-            - containerPort: 3000
+        image: mohitdocker241/speakershop:v1.0.0
 
-          envFrom:
-            - configMapRef:
-                name: speakershop-config
+        ports:
+          - containerPort: 3000
 
-            - secretRef:
-                name: speakershop-secret
+        volumeMounts:
+          - name: speakershop-storage
+            mountPath: /app/data
+
+      volumes:
+        - name: speakershop-storage
+
+          persistentVolumeClaim:
+            claimName: speakershop-pvc
